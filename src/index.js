@@ -7,7 +7,7 @@ wishListForm.addEventListener("submit", submitWishList)
 
 function submitWishList(){
     event.preventDefault()
-    // displayWishList()
+
     const configObj = {
         method: "POST",
         headers: {
@@ -20,6 +20,8 @@ function submitWishList(){
     }
 
     fetch(wishListUrl, configObj)
+
+    displayWishList()
 
 }
 
