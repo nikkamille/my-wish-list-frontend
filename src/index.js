@@ -6,6 +6,11 @@ wishListForm.addEventListener("submit", submitWishList)
 
 function submitWishList(){
     event.preventDefault()
+    displayWishList()
+
+}
+
+function displayWishList(){
     const li = document.createElement('li')
 
     const p = document.createElement('p')
@@ -22,7 +27,6 @@ function submitWishList(){
     wishList.appendChild(li)
 
     wishListForm.reset()
-
 }
 
 function submitItem(e){
