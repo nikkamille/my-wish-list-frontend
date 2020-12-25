@@ -12,7 +12,7 @@ function submitWishList(){
     p.innerText = wishListInput.value
 
     const itemForm = document.createElement('form')
-    itemForm.innerHTML += `<input type="text" id="itemInput"><input type="submit">`
+    itemForm.innerHTML += `<input type="text" id="item-form"><input type="submit">`
     itemForm.addEventListener("submit", submitItem)
     
     const itemList = document.createElement('ul')
@@ -28,5 +28,11 @@ function submitWishList(){
 function submitItem(e){
     e.preventDefault()
     const itemInput = e.target.children[0].value
+    const itemList = e.target.nextElementSibling
+
+    const li = document.createElement('li')
+    li.innerText = itemInput
+    itemList.appendChild(li)
+    e.target.reset()
     
 }
