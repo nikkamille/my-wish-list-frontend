@@ -7,7 +7,19 @@ wishListForm.addEventListener("submit", submitWishList)
 
 function submitWishList(){
     event.preventDefault()
-    displayWishList()
+    // displayWishList()
+    const configObj = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            name: wishListInput.value
+        })
+    }
+
+    fetch(wishListUrl, configObj)
 
 }
 
