@@ -1,6 +1,7 @@
 const wishListForm = document.getElementById("wish-list-form")
 const wishListInput = document.getElementById("wish-list-input")
 const wishList = document.getElementById("wish-list")
+const wishListUrl = `http://localhost:3000/wish_lists`
 
 wishListForm.addEventListener("submit", submitWishList)
 
