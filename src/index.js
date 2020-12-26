@@ -64,10 +64,7 @@ function submitItem(e){
     itemUrl.innerText = itemUrlInput
     const itemImageUrl = document.createElement('li')
     itemImageUrl.innerText = itemImageUrlInput
-    // const itemName = document.createTextNode(itemNameInput)
-    // const itemPrice = document.createTextNode("$" + itemPriceInput)
-    // const itemUrl = document.createTextNode(itemUrlInput)
-    // const itemImageUrl = document.createTextNode(itemImageUrlInput)
+
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
     e.target.reset()
     
