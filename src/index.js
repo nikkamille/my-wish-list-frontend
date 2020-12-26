@@ -32,20 +32,16 @@ function displayWishList(){
     p.innerText = wishListInput.value
 
     const itemForm = document.createElement('form')
-    itemForm.innerHTML += `<label for="item-name">Item: </label>
-        <input type="text" id="item-name" required><br/>
-        <label for="item-price">Price: </label>
-        <input type="number" id="item-price" required><br/>
-        <label for="item-url">Website: </label>
-        <input type="text" id="item-url" required><br/>
-        <label for="image-url">Image Link: </label>
-        <input type="text" id="image-url"><br/>
+    itemForm.innerHTML += `<label for="item-name">Item: </label><input type="text" id="item-name" required><br/>
+        <label for="item-price">Price: </label><input type="number" id="item-price" required><br/>
+        <label for="item-url">Website: </label><input type="text" id="item-url" required><br/>
+        <label for="item-image-url">Image Link: </label><input type="text" id="item-image-url" required><br/>
     <input type="submit">`
     itemForm.addEventListener("submit", submitItem)
     
-    const itemList = document.createElement('ul')
+    const itemContainer = document.createElement('ul')
 
-    li.append(p, itemForm, itemList)
+    li.append(p, itemForm, itemContainer)
      
     wishList.appendChild(li)
 
@@ -54,12 +50,25 @@ function displayWishList(){
 
 function submitItem(e){
     e.preventDefault()
-    const itemInput = e.target.children[0].value
-    const itemList = e.target.nextElementSibling
-
-    const li = document.createElement('li')
-    li.innerText = itemInput
-    itemList.appendChild(li)
+    const itemNameInput = e.target.children[1].value
+    const itemPriceInput = e.target.children[4].value
+    const itemUrlInput = e.target.children[7].value
+    const itemImageUrlInput = e.target.children[10].value
+    
+    const itemContainer = e.target.nextElementSibling
+    const itemName = document.createElement('li')
+    itemName.innerText = itemNameInput
+    const itemPrice = document.createElement('li')
+    itemPrice.innerText = itemPriceInput
+    const itemUrl = document.createElement('li')
+    itemUrl.innerText = itemUrlInput
+    const itemImageUrl = document.createElement('li')
+    itemImageUrl.innerText = itemImageUrlInput
+    // const itemName = document.createTextNode(itemNameInput)
+    // const itemPrice = document.createTextNode("$" + itemPriceInput)
+    // const itemUrl = document.createTextNode(itemUrlInput)
+    // const itemImageUrl = document.createTextNode(itemImageUrlInput)
+    itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
     e.target.reset()
     
 }
