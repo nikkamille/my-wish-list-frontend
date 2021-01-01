@@ -63,6 +63,7 @@ function renderItem(e){
     const itemUrlInput = e.target.children[7].value
     const itemImageUrlInput = e.target.children[10].value
     
+    const itemDiv = document.createElement('div')
     const itemContainer = e.target.nextElementSibling
     const itemName = document.createElement('li')
     itemName.innerText = itemNameInput
@@ -74,6 +75,7 @@ function renderItem(e){
     itemImageUrl.innerText = itemImageUrlInput
 
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
+    itemDiv.appendChild(itemContainer)
 
     submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
     
