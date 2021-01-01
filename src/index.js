@@ -3,6 +3,12 @@ const wishListInput = document.getElementById("wish-list-input")
 const wishList = document.getElementById("wish-list")
 const wishListUrl = `http://localhost:3000/wish_lists`
 
+function fetchWishLists(){
+    fetch(wishListUrl)
+    .then(res => res.json())
+    .then(wishLists => wishLists.data.forEach(console.log))
+}
+
 wishListForm.addEventListener("submit", submitWishList)
 
 function submitWishList(){
@@ -69,3 +75,5 @@ function submitItem(e){
     e.target.reset()
     
 }
+
+fetchWishLists()
