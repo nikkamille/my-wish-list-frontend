@@ -6,7 +6,7 @@ const wishListUrl = `http://localhost:3000/wish_lists`
 function fetchWishLists(){
     fetch(wishListUrl)
     .then(res => res.json())
-    .then(wishLists => wishLists.data.forEach(console.log))
+    .then(wishLists => wishLists.data.forEach(myWishList => displayWishList(myWishList.attributes.name)))
 }
 
 wishListForm.addEventListener("submit", submitWishList)
@@ -27,15 +27,15 @@ function submitWishList(){
 
     fetch(wishListUrl, configObj)
 
-    displayWishList()
+    displayWishList(wishListInput.value)
 
 }
 
-function displayWishList(){
+function displayWishList(myWishList){
     const li = document.createElement('li')
 
     const p = document.createElement('p')
-    p.innerText = wishListInput.value
+    p.innerText = myWishList
 
     const itemForm = document.createElement('form')
     itemForm.innerHTML += `<label for="item-name">Item: </label><input type="text" id="item-name" required><br/>
