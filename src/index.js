@@ -2,7 +2,7 @@ const wishListForm = document.getElementById("wish-list-form")
 const wishListInput = document.getElementById("wish-list-input")
 const wishList = document.getElementById("wish-list")
 const wishListUrl = `http://localhost:3000/wish_lists`
-const itemUrl = `http://localhost:3000/items`
+const itemsUrl = `http://localhost:3000/items`
 
 function fetchWishLists(){
     fetch(wishListUrl)
@@ -44,7 +44,7 @@ function renderWishList(myWishList){
         <label for="item-url">Website: </label><input type="text" id="item-url" required><br/>
         <label for="item-image-url">Image Link: </label><input type="text" id="item-image-url" required><br/>
     <input type="submit">`
-    itemForm.addEventListener("submit", submitItem)
+    itemForm.addEventListener("submit", renderItem)
     
     const itemContainer = document.createElement('ul')
 
@@ -55,13 +55,9 @@ function renderWishList(myWishList){
     wishListForm.reset()
 }
 
-function submitItem(e){
+function renderItem(e){
     e.preventDefault()
-    
-    
-}
-
-function renderItem(){
+    // const itemFormInput = e.target
     const itemNameInput = e.target.children[1].value
     const itemPriceInput = e.target.children[4].value
     const itemUrlInput = e.target.children[7].value
@@ -78,8 +74,28 @@ function renderItem(){
     itemImageUrl.innerText = itemImageUrlInput
 
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
+
+    submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
     
     e.target.reset()
+    
+}
+
+function submitItem(itemName, itemPrice, itemUrl, itemImageUrl){
+    fetch(itemsUrl, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            name: itemName,
+            price: itemPrice, 
+            url: itemUrl,
+            imageUrl: itemImageUrl
+        })
+    })
+    
 }
 
 fetchWishLists()
