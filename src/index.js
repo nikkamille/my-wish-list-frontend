@@ -9,7 +9,6 @@ const itemsList = document.getElementById("items-list")
 function fetchWishLists(){
     fetch(wishListUrl)
     .then(res => res.json())
-    // .then(wishLists => wishLists.forEach(myWishList => renderWishList(myWishList)))
     .then(wishLists => wishLists.forEach(renderWishList))
 }
 
