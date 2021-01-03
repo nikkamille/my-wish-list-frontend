@@ -52,18 +52,20 @@ function renderWishList(myWishList){
     <input type="submit">`
     itemForm.addEventListener("submit", renderItem)
     
-    const itemContainer = document.createElement('ul')
+    // const itemContainer = document.createElement('ul')
 
-    li.append(p, itemForm, itemContainer)
-     
+    // li.append(p, itemForm, itemContainer)
+    li.append(p, itemForm)
+  
     wishLists.appendChild(li)
 
     wishListForm.reset()
 }
 
+
 function renderItem(e){
     e.preventDefault()
-    console.log(e.target.nextElementSibling)
+    // console.log(e.target.nextElementSibling)
     
     const itemNameInput = e.target.children[1].value
     const itemPriceInput = e.target.children[4].value
@@ -71,8 +73,14 @@ function renderItem(e){
     const itemImageUrlInput = e.target.children[10].value
     const wishListId = e.target.parentElement.dataset.id
     
-    const itemDiv = document.createElement('div')
-    const itemContainer = e.target.nextElementSibling
+    // const itemAttributes = {
+    //     itemName = document.createElement('li').innerText = itemNameInput,
+    //     itemPrice = document.createElement('li').innerText = itemPriceInput,
+    //     itemUrl = document.createElement('li').innerText = itemUrlInput,
+    //     itemImageUrl = document.createElement('li').innerText = itemImageUrlInput 
+    // }
+    // console.log(itemAttributes)
+
     const itemName = document.createElement('li')
     itemName.innerText = itemNameInput
     const itemPrice = document.createElement('li')
@@ -83,15 +91,15 @@ function renderItem(e){
     itemImageUrl.innerText = itemImageUrlInput
 
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
-    itemDiv.appendChild(itemContainer)
+    // itemDiv.appendChild(itemContainer)
 
-    // submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
+    submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput, wishListId)
     
     e.target.reset()
     
 }
 
-function submitItem(itemName, itemPrice, itemUrl, itemImageUrl){
+function submitItem(itemName, itemPrice, itemUrl, itemImageUrl, wishListId) {
     fetch(itemsUrl, {
         method: "POST",
         headers: {
@@ -102,7 +110,8 @@ function submitItem(itemName, itemPrice, itemUrl, itemImageUrl){
             name: itemName,
             price: itemPrice, 
             url: itemUrl,
-            imageUrl: itemImageUrl
+            image_url: itemImageUrl,
+            wish_list_id: wishListId
         })
     })
     
