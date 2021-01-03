@@ -37,6 +37,7 @@ function submitWishList(){
 
 function renderWishList(myWishList){
     const li = document.createElement('li')
+    li.dataset.id = myWishList.id
 
     const p = document.createElement('p')
     p.innerText = myWishList.name
@@ -60,7 +61,7 @@ function renderWishList(myWishList){
 
 function renderItem(e){
     e.preventDefault()
-    // const itemFormInput = e.target
+    // console.log(e.target.parentElement.dataset.id)
     
     const itemNameInput = e.target.children[1].value
     const itemPriceInput = e.target.children[4].value
@@ -81,7 +82,7 @@ function renderItem(e){
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
     itemDiv.appendChild(itemContainer)
 
-    submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
+    // submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
     
     e.target.reset()
     
