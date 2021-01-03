@@ -1,8 +1,10 @@
 const wishListForm = document.getElementById("wish-list-form")
 const wishListInput = document.getElementById("wish-list-input")
-const wishList = document.getElementById("wish-list")
+const wishLists = document.getElementById("wish-lists")
 const wishListUrl = `http://localhost:3000/wish_lists`
 const itemsUrl = `http://localhost:3000/items`
+const itemContainer = document.getElementById("item-container")
+const itemsList = document.getElementById("items-list")
 
 function fetchWishLists(){
     fetch(wishListUrl)
@@ -54,19 +56,20 @@ function renderWishList(myWishList){
 
     li.append(p, itemForm, itemContainer)
      
-    wishList.appendChild(li)
+    wishLists.appendChild(li)
 
     wishListForm.reset()
 }
 
 function renderItem(e){
     e.preventDefault()
-    // console.log(e.target.parentElement.dataset.id)
+    console.log(e.target.nextElementSibling)
     
     const itemNameInput = e.target.children[1].value
     const itemPriceInput = e.target.children[4].value
     const itemUrlInput = e.target.children[7].value
     const itemImageUrlInput = e.target.children[10].value
+    const wishListId = e.target.parentElement.dataset.id
     
     const itemDiv = document.createElement('div')
     const itemContainer = e.target.nextElementSibling
