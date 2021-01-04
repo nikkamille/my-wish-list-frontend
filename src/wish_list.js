@@ -22,7 +22,7 @@ class WishList {
             .then(wishListArray => {
                 this.collection = wishListArray.map(wishList => new WishList(wishList))
                 console.log(this)
-                debugger
+                // debugger
             })
         // // .then(wishLists => wishLists.forEach(renderWishList))
         // .then(wishLists => {

@@ -3,31 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="tailwind.css" rel="stylesheet">
     <title>My Wish List</title>
 </head>
-<body>
-    <h1>My Wish List</h1>
+<body class="bg-purple-50">
+    <div class="container mx-auto">
+        <div id="wish-list-header" class="container mx-auto px-4 box-content h-20 max-w-full p-4 border-0">    
+            <h1 class="font-serif text-7xl font-medium text-blue-900 text-center">My Wish List</h1>
+        </div>
 
-    <div id="wish-list-container">
-        <h3>Name Your List</h3>
+        <div id="containers" class="container mx-auto sm:grid grid-cols-4 gap-4 my-4">
+            <div id="wish-list-container" class="px-4 bg-gray-50 sm:min-h-screen rounded-md shadow col-span-1">
+                <h3>Name Your List</h3>
 
-        <form id="wish-list-form">
-            <label for="wish-list-input">Wish List Name: </label>
-            <input type="text" id="wish-list-input">
-            <input type="submit">
-        </form>
+                <form id="wish-list-form">
+                    <label for="wish-list-input">Wish List Name: </label>
+                    <input type="text" id="wish-list-input">
+                    <input type="submit">
+                </form>
 
-        <ul id="wish-lists">
+                <ul id="wish-lists">
 
-        </ul>
+                </ul>
 
-    </div>
+            </div>
 
-    <div id="item-container">
-        <h4>My Wish List</h4>
-        <ul id="items-list">
+            <div id="item-container" class="px-4 bg-gray-50 sm:min-h-screen rounded-md shadow col-span-3">
+                <h4>My Wish List</h4>
+                <ul id="items-list">
 
-        </ul>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="./src/wish_list.js"></script>
