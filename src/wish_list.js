@@ -6,9 +6,24 @@ class WishList {
     }
 
     static fetchAllWishLists(){
-        console.log(".fetchAllWishLists() was called");
-        // return fetch(wishListUrl)
-        // .then(res => res.json())
+        return fetch(wishListUrl, {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res => {
+                if(res.ok) {
+                    return res.json()
+                } else {
+                    return res.text().then(error => Promise.reject(error))
+                }
+            })
+            .then(wishListArray => {
+                this.collection = wishListArray.map(wishList => new WishList(wishList))
+                console.log(this)
+                debugger
+            })
         // // .then(wishLists => wishLists.forEach(renderWishList))
         // .then(wishLists => {
         //     this.collection = wishLists.map()

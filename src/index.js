@@ -62,48 +62,48 @@ const itemsList = document.getElementById("items-list")
 // }
 
 
-function renderItem(e){
-    e.preventDefault()
+// function renderItem(e){
+//     e.preventDefault()
     
-    const itemNameInput = e.target.children[1].value
-    const itemPriceInput = e.target.children[4].value
-    const itemUrlInput = e.target.children[7].value
-    const itemImageUrlInput = e.target.children[10].value
-    const wishListId = e.target.parentElement.dataset.id
+//     const itemNameInput = e.target.children[1].value
+//     const itemPriceInput = e.target.children[4].value
+//     const itemUrlInput = e.target.children[7].value
+//     const itemImageUrlInput = e.target.children[10].value
+//     const wishListId = e.target.parentElement.dataset.id
 
-    const itemName = document.createElement('li')
-    itemName.innerText = itemNameInput
-    const itemPrice = document.createElement('li')
-    itemPrice.innerText = itemPriceInput
-    const itemUrl = document.createElement('li')
-    itemUrl.innerText = itemUrlInput
-    const itemImageUrl = document.createElement('li')
-    itemImageUrl.innerText = itemImageUrlInput
+//     const itemName = document.createElement('li')
+//     itemName.innerText = itemNameInput
+//     const itemPrice = document.createElement('li')
+//     itemPrice.innerText = itemPriceInput
+//     const itemUrl = document.createElement('li')
+//     itemUrl.innerText = itemUrlInput
+//     const itemImageUrl = document.createElement('li')
+//     itemImageUrl.innerText = itemImageUrlInput
 
-    itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
+//     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
 
-    submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput, wishListId)
+//     submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput, wishListId)
     
-    e.target.reset()
+//     e.target.reset()
     
-}
+// }
 
-function submitItem(itemName, itemPrice, itemUrl, itemImageUrl, wishListId) {
-    fetch(itemsUrl, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            name: itemName,
-            price: itemPrice, 
-            url: itemUrl,
-            image_url: itemImageUrl,
-            wish_list_id: wishListId
-        })
-    })
+// function submitItem(itemName, itemPrice, itemUrl, itemImageUrl, wishListId) {
+//     fetch(itemsUrl, {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             name: itemName,
+//             price: itemPrice, 
+//             url: itemUrl,
+//             image_url: itemImageUrl,
+//             wish_list_id: wishListId
+//         })
+//     })
     
-}
+// }
 
-WishList.fetchWishLists()
+// WishList.fetchWishLists()
