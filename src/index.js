@@ -6,79 +6,70 @@ const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")
 const itemsList = document.getElementById("items-list")
 
-function fetchWishLists(){
-    fetch(wishListUrl)
-    .then(res => res.json())
-    .then(wishLists => wishLists.forEach(renderWishList))
-}
+// function fetchWishLists(){
+//     fetch(wishListUrl)
+//     .then(res => res.json())
+//     .then(wishLists => wishLists.forEach(renderWishList))
+// }
 
-wishListForm.addEventListener("submit", submitWishList)
+// wishListForm.addEventListener("submit", WishList.submitWishList)
 
-function submitWishList(){
-    event.preventDefault()
+// function submitWishList(){
+//     event.preventDefault()
 
-    const configObj = {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            name: wishListInput.value
-        })
-    }
+//     const configObj = {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             name: wishListInput.value
+//         })
+//     }
 
-    fetch(wishListUrl, configObj)
-    .then(res => res.json())
-    .then(renderWishList)
+//     fetch(wishListUrl, configObj)
+//     .then(res => res.json())
+//     .then(renderWishList)
 
-    // renderWishList(wishListInput.value)
+//     // renderWishList(wishListInput.value)
 
-}
+// }
 
-function renderWishList(myWishList){
-    const li = document.createElement('li')
-    li.dataset.id = myWishList.id
+// function renderWishList(myWishList){
+//     const li = document.createElement('li')
+//     li.dataset.id = myWishList.id
 
-    const p = document.createElement('p')
-    p.innerText = myWishList.name
+//     const p = document.createElement('p')
+//     p.innerText = myWishList.name
 
-    const itemForm = document.createElement('form')
-    itemForm.innerHTML += `<label for="item-name">Item: </label><input type="text" id="item-name" required><br/>
-        <label for="item-price">Price: </label><input type="number" id="item-price" required><br/>
-        <label for="item-url">Website: </label><input type="text" id="item-url" required><br/>
-        <label for="item-image-url">Image Link: </label><input type="text" id="item-image-url" required><br/>
-    <input type="submit">`
-    itemForm.addEventListener("submit", renderItem)
+//     const itemForm = document.createElement('form')
+//     itemForm.innerHTML += `<label for="item-name">Item: </label><input type="text" id="item-name" required><br/>
+//         <label for="item-price">Price: </label><input type="number" id="item-price" required><br/>
+//         <label for="item-url">Website: </label><input type="text" id="item-url" required><br/>
+//         <label for="item-image-url">Image Link: </label><input type="text" id="item-image-url" required><br/>
+//     <input type="submit">`
+//     itemForm.addEventListener("submit", renderItem)
     
-    // const itemContainer = document.createElement('ul')
+//     // const itemContainer = document.createElement('ul')
 
-    // li.append(p, itemForm, itemContainer)
-    li.append(p, itemForm)
+//     // li.append(p, itemForm, itemContainer)
+//     li.append(p, itemForm)
   
-    wishLists.appendChild(li)
+//     wishLists.appendChild(li)
 
-    wishListForm.reset()
-}
+//     wishListForm.reset()
+// }
 
 
 function renderItem(e){
     e.preventDefault()
-    // console.log(e.target.nextElementSibling)
     
     const itemNameInput = e.target.children[1].value
     const itemPriceInput = e.target.children[4].value
     const itemUrlInput = e.target.children[7].value
     const itemImageUrlInput = e.target.children[10].value
     const wishListId = e.target.parentElement.dataset.id
-    
-    // const itemAttributes = {
-    //     itemName = document.createElement('li').innerText = itemNameInput,
-    //     itemPrice = document.createElement('li').innerText = itemPriceInput,
-    //     itemUrl = document.createElement('li').innerText = itemUrlInput,
-    //     itemImageUrl = document.createElement('li').innerText = itemImageUrlInput 
-    // }
-    // console.log(itemAttributes)
 
     const itemName = document.createElement('li')
     itemName.innerText = itemNameInput
@@ -90,7 +81,6 @@ function renderItem(e){
     itemImageUrl.innerText = itemImageUrlInput
 
     itemContainer.append(itemName, itemPrice, itemUrl, itemImageUrl)
-    // itemDiv.appendChild(itemContainer)
 
     submitItem(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput, wishListId)
     
@@ -116,4 +106,4 @@ function submitItem(itemName, itemPrice, itemUrl, itemImageUrl, wishListId) {
     
 }
 
-fetchWishLists()
+WishList.fetchWishLists()
