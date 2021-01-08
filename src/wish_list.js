@@ -22,13 +22,35 @@ class WishList {
             .then(wishListArray => {
                 this.collection = wishListArray.map(wishList => new WishList(wishList))
                 console.log(this)
-                // debugger
+                debugger
             })
         // // .then(wishLists => wishLists.forEach(renderWishList))
         // .then(wishLists => {
         //     this.collection = wishLists.map()
         // })
     }
+
+    // Fill the elements with this html:
+    // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
+    //     <a href="#" class="block text-center font-medium py-4 col-span-6 text-xl">Birthday Wishes</a>
+    //     <a href="#"><i class="far fa-edit"></i></a>
+    //     <a href="#" class="float-right"><i class="far fa-trash-alt"></i></a>
+    // </li>
+
+    renderWishList() {
+        this.liElement ||= document.createElement("li")
+        this.liElement.class = "transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4"
+        
+        this.listName ||= document.createElement("a")
+        this.listName.class = "block text-center font-medium py-4 col-span-6 text-xl"
+
+        this.editLink ||= document.createElement("a")
+        this.editLink.class = "far fa-edit"
+    }
+
+
+
+
 
     
     // static submitWishList(){
