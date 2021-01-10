@@ -39,18 +39,18 @@ class WishList {
 
     renderWishList() {
         this.liElement ||= document.createElement("li")
-        this.liElement.class = "transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4"
+        this.liElement.classList.add(..."transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4".split(" "))
         
         this.listName ||= document.createElement("a")
-        this.listName.class = "block text-center font-medium py-4 col-span-6 text-xl"
+        this.listName.classList.add(..."block text-center font-medium py-4 col-span-6 text-xl".split(" "))
         this.listName.textContent = this.name
 
         this.editLink ||= document.createElement("a")
-        this.editLink.class = "far fa-edit"
+        this.editLink.classList.add(..."far fa-edit".split(" ")) 
         this.editLink.innerHTML = `<i class="far fa-edit"></i>`
 
         this.deleteLink ||= document.createElement("a")
-        this.deleteLink.class = "float-right"
+        this.deleteLink.classList.add(..."float-right".split(" "))
         this.deleteLink.innerHTML = `<i class="far fa-trash-alt"></i>`
 
         this.liElement.append(this.listName, this.editLink, this.deleteLink)
