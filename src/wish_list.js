@@ -43,9 +43,19 @@ class WishList {
         
         this.listName ||= document.createElement("a")
         this.listName.class = "block text-center font-medium py-4 col-span-6 text-xl"
+        this.listName.textContent = this.name
 
         this.editLink ||= document.createElement("a")
         this.editLink.class = "far fa-edit"
+        this.editLink.innerHTML = `<i class="far fa-edit"></i>`
+
+        this.deleteLink ||= document.createElement("a")
+        this.deleteLink.class = "float-right"
+        this.deleteLink.innerHTML = `<i class="far fa-trash-alt"></i>`
+
+        this.liElement.append(this.listName, this.editLink, this.deleteLink)
+
+        return this.liElement
     }
 
 
