@@ -1,6 +1,6 @@
 const wishListForm = document.getElementById("wish-list-form")
 const wishListInput = document.getElementById("wish-list-input")
-const wishLists = document.getElementById("wish-lists")
+// const wishLists = document.getElementById("wish-lists")
 const wishListUrl = `http://localhost:3000/wish_lists`
 const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")

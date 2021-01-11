@@ -5,6 +5,10 @@ class WishList {
         this.name = wishList.name
     }
 
+    static wishListContainer() {
+        return this.wishList ||= document.getElementById("wish-lists")
+    }
+    
     static fetchAllWishLists(){
         return fetch(wishListUrl, {
             headers: {
@@ -21,7 +25,8 @@ class WishList {
             })
             .then(wishListArray => {
                 this.collection = wishListArray.map(wishList => new WishList(wishList))
-                console.log(this)
+                let renderedWishLists = this.collection.map(wishList => wishList.renderWishList())
+                this.wishListContainer().append(...renderedWishLists)
                 debugger
             })
         // // .then(wishLists => wishLists.forEach(renderWishList))
@@ -45,8 +50,7 @@ class WishList {
         this.listName.classList.add(..."block text-center font-medium py-4 col-span-6 text-xl".split(" "))
         this.listName.textContent = this.name
 
-        this.editLink ||= document.createElement("a")
-        this.editLink.classList.add(..."far fa-edit".split(" ")) 
+        this.editLink ||= document.createElement("a") 
         this.editLink.innerHTML = `<i class="far fa-edit"></i>`
 
         this.deleteLink ||= document.createElement("a")
