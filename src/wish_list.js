@@ -27,12 +27,8 @@ class WishList {
                 this.collection = wishListArray.map(wishList => new WishList(wishList))
                 let renderedWishLists = this.collection.map(wishList => wishList.renderWishList())
                 this.wishListContainer().append(...renderedWishLists)
-                debugger
+                return this.collection
             })
-        // // .then(wishLists => wishLists.forEach(renderWishList))
-        // .then(wishLists => {
-        //     this.collection = wishLists.map()
-        // })
     }
 
     // Fill the elements with this html:
