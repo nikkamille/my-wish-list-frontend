@@ -70,12 +70,12 @@ class WishList {
         this.listName.classList.add(..."block text-center font-medium py-4 col-span-6 text-xl".split(" "))
         this.listName.textContent = this.name
 
-        this.editLink ||= document.createElement("a") 
-        this.editLink.innerHTML = `<i class="far fa-edit" id="edit-icon"></i>`
+        this.editLink ||= document.createElement("button") 
+        this.editLink.innerHTML = `<i class="far fa-edit" id="edit-button"></i>`
 
-        this.deleteLink ||= document.createElement("a")
+        this.deleteLink ||= document.createElement("button")
         this.deleteLink.classList.add(..."float-right".split(" "))
-        this.deleteLink.innerHTML = `<i class="far fa-trash-alt" id="delete-icon"></i>`
+        this.deleteLink.innerHTML = `<i class="far fa-trash-alt outline-none" id="delete-button"></i>`
 
         this.liElement.append(this.listName, this.editLink, this.deleteLink)
         this.constructor.wishListContainer().appendChild(this.liElement)
@@ -84,10 +84,8 @@ class WishList {
     }
 
     deleteWishList() {
-        const deleteIcon = document.getElementsByClassName("far fa-trash-alt")
-        deleteIcon.addEventListener("click", function(e) {
-            console.log("Hi!")
-        })
+        const deleteButton = document.getElementById("delete-button")
+        deleteButton.addEventListener("click", console.log("Hi!"))
         // console.log(document.getElementsByClassName("far fa-trash-alt"))
         fetch(`${wishListUrl}/${this.id}`, {
             method: "DELETE"
