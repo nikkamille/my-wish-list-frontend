@@ -10,7 +10,6 @@ document.addEventListener("submit", function(e) {
     let target = e.target
     if(target.matches("#wish-list-form")) {
         e.preventDefault()
-        console.log(target)
     }
     
 })

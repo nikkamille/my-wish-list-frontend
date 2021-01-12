@@ -28,8 +28,34 @@ class WishList {
                 let renderedWishLists = this.collection.map(wishList => wishList.renderWishList())
                 this.wishListContainer().append(...renderedWishLists)
                 return this.collection
-            })
+            })    
     }
+
+    static submitWishList(formInput) {
+        return fetch(wishListUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({wish_list: formInput})
+        })
+        .then(res => {
+            if(res.ok) {
+                return res.json()
+            } else {
+                return res.text().then(error => Promise.reject(error))
+            }
+        })
+        .then(wishListAttributes => {
+            let wishList = new WishList(wishListAttributes)
+            this.collection.push(wishList)
+            this.wishListContainer().appendChild(wishList.renderWishList())
+            return wishList
+            
+        })
+    }
+
 
     // Fill the elements with this html:
     // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
