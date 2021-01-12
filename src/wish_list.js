@@ -31,44 +31,6 @@ class WishList {
             })    
     }
 
-    // static submitWishList() {
-    //     event.preventDefault()
-    //     debugger
-    //     // console.log(wishListInput.value)
-    //     return fetch(wishListUrl, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(wishListInput.value)
-    //     })
-    //     .then(res => {
-    //         if(res.ok) {
-    //             return res.json()
-    //         } else {
-    //             return res.text().then(error => Promise.reject(error))
-    //         }
-    //     })
-    //     .then(wishListAttributes => {
-    //         let wishList = new WishList(wishListAttributes)
-    //         this.collection.push(wishList)
-    //         this.wishListContainer().appendChild(wishList.renderWishList())
-    //         return wishList
-            
-    //     })
-    // }
-
-    
-
-
-    // Fill the elements with this html:
-    // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
-    //     <a href="#" class="block text-center font-medium py-4 col-span-6 text-xl">Birthday Wishes</a>
-    //     <a href="#"><i class="far fa-edit"></i></a>
-    //     <a href="#" class="float-right"><i class="far fa-trash-alt"></i></a>
-    // </li>
-
     static submitWishList(){
         event.preventDefault()
     
@@ -89,11 +51,15 @@ class WishList {
             let newWishList = new WishList(data)
             newWishList.renderWishList()
         })
-        // .then(renderWishList())
-    
-        // renderWishList(wishListInput.value)
-    
+        wishListForm.reset() 
     }
+
+    // Fill the elements with this html:
+    // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
+    //     <a href="#" class="block text-center font-medium py-4 col-span-6 text-xl">Birthday Wishes</a>
+    //     <a href="#"><i class="far fa-edit"></i></a>
+    //     <a href="#" class="float-right"><i class="far fa-trash-alt"></i></a>
+    // </li>
 
     renderWishList() {
         this.liElement ||= document.createElement("li")
@@ -112,61 +78,9 @@ class WishList {
         this.deleteLink.innerHTML = `<i class="far fa-trash-alt"></i>`
 
         this.liElement.append(this.listName, this.editLink, this.deleteLink)
-        // globalThis.wishListContainer.appendChild(this.liElement)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
         return this.liElement
     }
-
-
-
-    
-    // static submitWishList(){
-    //     event.preventDefault()
-    
-    //     const configObj = {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             name: wishListInput.value
-    //         })
-    //     }
-    
-    //     fetch(wishListUrl, configObj)
-    //     .then(res => res.json())
-    //     .then(renderWishList)
-    
-    //     // renderWishList(wishListInput.value)
-    
-    // }
-    
-    // renderWishList(){
-    //     // console.log(this)
-    //     const li = document.createElement('li')
-    //     li.dataset.id = myWishList.id
-    
-    //     const p = document.createElement('p')
-    //     p.innerText = myWishList.name
-    
-    //     const itemForm = document.createElement('form')
-    //     itemForm.innerHTML += `<label for="item-name">Item: </label><input type="text" id="item-name" required><br/>
-    //         <label for="item-price">Price: </label><input type="number" id="item-price" required><br/>
-    //         <label for="item-url">Website: </label><input type="text" id="item-url" required><br/>
-    //         <label for="item-image-url">Image Link: </label><input type="text" id="item-image-url" required><br/>
-    //     <input type="submit">`
-    //     itemForm.addEventListener("submit", renderItem)
-        
-    //     // const itemContainer = document.createElement('ul')
-    
-    //     // li.append(p, itemForm, itemContainer)
-    //     li.append(p, itemForm)
-      
-    //     wishLists.appendChild(li)
-    
-    //     wishListForm.reset()
-    // }
     
 }
