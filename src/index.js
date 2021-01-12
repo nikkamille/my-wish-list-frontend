@@ -12,7 +12,7 @@ const itemsList = document.getElementById("items-list")
 //     .then(wishLists => wishLists.forEach(renderWishList))
 // }
 
-// wishListForm.addEventListener("submit", WishList.submitWishList)
+wishListForm.addEventListener("submit", WishList.submitWishList)
 
 // function submitWishList(){
 //     event.preventDefault()
