@@ -82,5 +82,13 @@ class WishList {
 
         return this.liElement
     }
+
+    deleteWishList() {
+        // console.log(document.getElementsByClassName)
+        fetch(`${wishListUrl}/${this.id}`, {
+            method: "DELETE"
+        })
+        // console.log(this)
+    }
     
 }
