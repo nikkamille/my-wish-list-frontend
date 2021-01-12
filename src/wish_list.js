@@ -71,11 +71,11 @@ class WishList {
         this.listName.textContent = this.name
 
         this.editLink ||= document.createElement("a") 
-        this.editLink.innerHTML = `<i class="far fa-edit"></i>`
+        this.editLink.innerHTML = `<i class="far fa-edit" id="edit-icon"></i>`
 
         this.deleteLink ||= document.createElement("a")
         this.deleteLink.classList.add(..."float-right".split(" "))
-        this.deleteLink.innerHTML = `<i class="far fa-trash-alt"></i>`
+        this.deleteLink.innerHTML = `<i class="far fa-trash-alt" id="delete-icon"></i>`
 
         this.liElement.append(this.listName, this.editLink, this.deleteLink)
         this.constructor.wishListContainer().appendChild(this.liElement)
@@ -84,7 +84,11 @@ class WishList {
     }
 
     deleteWishList() {
-        // console.log(document.getElementsByClassName)
+        const deleteIcon = document.getElementsByClassName("far fa-trash-alt")
+        deleteIcon.addEventListener("click", function(e) {
+            console.log("Hi!")
+        })
+        // console.log(document.getElementsByClassName("far fa-trash-alt"))
         fetch(`${wishListUrl}/${this.id}`, {
             method: "DELETE"
         })
