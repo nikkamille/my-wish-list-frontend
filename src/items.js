@@ -16,6 +16,7 @@ class Item {
     static loadFromWishList(wishListId, items) {
         this.collection = items.map(item => new Item(item))
         let renderedItems = this.collection.map(item => item.renderItem())
+        this.itemContainer().innerHTML = ""
         this.itemContainer().append(...renderedItems)
     }
 
