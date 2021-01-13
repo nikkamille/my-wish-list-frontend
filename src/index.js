@@ -12,6 +12,9 @@ const itemsList = document.getElementById("items-list")
 //     .then(wishLists => wishLists.forEach(renderWishList))
 // }
 
+document.addEventListener("DOMContentLoaded", function(e) {
+    WishList.fetchAllWishLists()
+})
 wishListForm.addEventListener("submit", WishList.submitWishList)
 
 // function submitWishList(){
