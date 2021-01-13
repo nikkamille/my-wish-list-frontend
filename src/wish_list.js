@@ -70,27 +70,31 @@ class WishList {
         this.listName.classList.add(..."block text-center font-medium py-4 col-span-6 text-xl".split(" "))
         this.listName.textContent = this.name
 
-        this.editLink ||= document.createElement("button") 
-        this.editLink.innerHTML = `<i class="far fa-edit" id="edit-button"></i>`
+        this.editButton ||= document.createElement("button") 
+        this.editButton.classList.add(..."focus:outline-none".split(" "))
+        this.editButton.innerHTML = `<i class="far fa-edit"></i>`
 
-        this.deleteLink ||= document.createElement("button")
-        this.deleteLink.classList.add(..."float-right".split(" "))
-        this.deleteLink.innerHTML = `<i class="far fa-trash-alt outline-none" id="delete-button"></i>`
+        this.deleteButton ||= document.createElement("button")
+        this.deleteButton.classList.add(..."float-right focus:outline-none".split(" "))
+        this.deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`
 
-        this.liElement.append(this.listName, this.editLink, this.deleteLink)
+        this.liElement.append(this.listName, this.editButton, this.deleteButton)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
-        return this.liElement
+        // return this.liElement
+        this.deleteButton.addEventListener("click", this.deleteWishList)
     }
 
     deleteWishList() {
-        const deleteButton = document.getElementById("delete-button")
-        deleteButton.addEventListener("click", console.log("Hi!"))
-        // console.log(document.getElementsByClassName("far fa-trash-alt"))
-        fetch(`${wishListUrl}/${this.id}`, {
+        const wishListId = this.parentElement.dataset.id
+    
+        return fetch(`${wishListUrl}/${wishListId}`, {
             method: "DELETE"
         })
-        // console.log(this)
+        
+        this.parentElement.remove()
+
+        console.log("Delete button clicked!")
     }
     
 }
