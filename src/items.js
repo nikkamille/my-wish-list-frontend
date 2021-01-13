@@ -51,15 +51,18 @@ class Item {
 
         this.itemLink ||= document.createElement("a")
         this.itemLink.href = this.url
-        this.itemLink.classList.add(..."text-center font-medium text-blue-700 break-all".split(" "))
+        this.itemLink.textContent = this.url
+        this.itemLink.classList.add(..."block text-center font-medium text-blue-700 break-all".split(" "))
 
         this.itemDeleteButton ||= document.createElement("button")
-        this.itemDeleteButton.classList.add(..."text-sm font-bold text-red-700 focus:outline-none".split(" "))
+        this.itemDeleteButton.classList.add(..."text-sm font-bold text-red-700 p-1 focus:outline-none".split(" "))
         this.itemDeleteButton.innerHTML = "DELETE"
 
         this.liElement.append(this.image, this.itemName, this.itemPrice, this.itemLink, this.itemDeleteButton)
-        this.liElement.insertBefore(br, this.itemPrice)
-        // this.liElement.insertBefore(br, this.itemDeleteButton)
+        this.liElement.insertBefore(document.createElement("br"), this.itemPrice)
+        this.liElement.insertBefore(document.createElement("br"), this.itemLink)
+        this.liElement.insertBefore(document.createElement("br"), this.itemDeleteButton)
+
         this.constructor.itemContainer().appendChild(this.liElement)
 
 
