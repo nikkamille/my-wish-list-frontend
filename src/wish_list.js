@@ -66,9 +66,9 @@ class WishList {
         this.liElement.classList.add(..."transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4".split(" "))
         this.liElement.dataset.id = this.id
 
-        this.listName ||= document.createElement("a")
-        this.listName.classList.add(..."block text-center font-medium py-4 col-span-6 text-xl".split(" "))
-        this.listName.textContent = this.name
+        this.listNameLink ||= document.createElement("a")
+        this.listNameLink.classList.add(..."block text-center font-medium p-2 col-span-6 text-xl cursor-pointer".split(" "))
+        this.listNameLink.textContent = this.name
 
         this.editButton ||= document.createElement("button") 
         this.editButton.classList.add(..."focus:outline-none".split(" "))
@@ -78,9 +78,10 @@ class WishList {
         this.deleteButton.classList.add(..."float-right focus:outline-none".split(" "))
         this.deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`
 
-        this.liElement.append(this.listName, this.editButton, this.deleteButton)
+        this.liElement.append(this.listNameLink, this.editButton, this.deleteButton)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
+        this.listNameLink.addEventListener("click", function(){console.log("Selected")})
         this.deleteButton.addEventListener("click", this.deleteWishList)
 
         return this.liElement
