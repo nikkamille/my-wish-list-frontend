@@ -13,8 +13,10 @@ class Item {
         return this.item ||= document.getElementById("items-list")
     }
     
-    static loadFromWishList() {
-        console.log("Ok?")
+    static loadFromWishList(wishListId, items) {
+        // let items = items
+        let renderedItems = items.map(item => item.renderItem())
+        this.itemContainer().append(...renderedItems)
     }
 
   
