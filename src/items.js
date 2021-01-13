@@ -9,6 +9,10 @@ class Item {
         this.wish_list_id = item.wish_list_id
     }
 
+    static itemContainer() {
+        return this.item ||= document.getElementById("items-list")
+    }
+    
     static loadFromWishList() {
         console.log("Ok?")
     }

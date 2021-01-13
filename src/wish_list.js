@@ -101,12 +101,9 @@ class WishList {
             }
         })
             .then(res => res.json())
-            // .then(({wishListId, wishListItems}) => {
-            //     Item.loadFromWishList(wishListId, wishListItems)
-            //     debugger
-            // })
-            .then(data => {
-                debugger
+            .then(({id, items}) => {
+                console.log("Inside callback")
+                Item.loadFromWishList(id, items)
             })
     }
 
