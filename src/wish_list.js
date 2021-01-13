@@ -94,8 +94,6 @@ class WishList {
         })
         
         this.parentElement.remove()
-
-        console.log("Delete button clicked!")
     }
     
 }
