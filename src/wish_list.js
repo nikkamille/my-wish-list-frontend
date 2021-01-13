@@ -54,6 +54,12 @@ class WishList {
         wishListForm.reset() 
     }
 
+    // static findWishListById(id) {
+    //     return this.collection.find(wishList => wishList.id == id)
+    // }
+
+
+
     // Fill the elements with this html:
     // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
     //     <a href="#" class="block text-center font-medium py-4 col-span-6 text-xl">Birthday Wishes</a>
@@ -81,10 +87,19 @@ class WishList {
         this.liElement.append(this.listNameLink, this.editButton, this.deleteButton)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
-        this.listNameLink.addEventListener("click", function(){console.log("Selected")})
+        this.listNameLink.addEventListener("click", this.showWishList)
         this.deleteButton.addEventListener("click", this.deleteWishList)
-
         return this.liElement
+    }
+
+    showWishList() {
+        const wishListId = this.parentElement.dataset.id
+        return fetch(`${wishListUrl}/${wishListId}`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
     }
 
     deleteWishList() {
