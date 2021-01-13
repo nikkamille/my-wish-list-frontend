@@ -88,19 +88,11 @@ class WishList {
     deleteWishList() {
         const wishListId = this.parentElement.dataset.id
     
-        return fetch(`${wishListUrl}/${wishListId}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(json => {
-            this.parentElement.remove()
+        fetch(`${wishListUrl}/${wishListId}`, {
+            method: "DELETE"
         })
         
-        // this.parentElement.remove()
+        this.parentElement.remove()
 
         console.log("Delete button clicked!")
     }
