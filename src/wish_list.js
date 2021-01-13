@@ -81,8 +81,9 @@ class WishList {
         this.liElement.append(this.listName, this.editButton, this.deleteButton)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
-        // return this.liElement
         this.deleteButton.addEventListener("click", this.deleteWishList)
+
+        return this.liElement
     }
 
     deleteWishList() {
