@@ -100,6 +100,14 @@ class WishList {
                 "Accept": "application/json"
             }
         })
+            .then(res => res.json())
+            // .then(({wishListId, wishListItems}) => {
+            //     Item.loadFromWishList(wishListId, wishListItems)
+            //     debugger
+            // })
+            .then(data => {
+                debugger
+            })
     }
 
     deleteWishList() {
