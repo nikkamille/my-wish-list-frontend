@@ -1,10 +1,12 @@
 const wishListForm = document.getElementById("wish-list-form")
+const itemForm = document.getElementById("item-form")
 const wishListInput = document.getElementById("wish-list-input")
 // const wishLists = document.getElementById("wish-lists")
 const wishListUrl = `http://localhost:3000/wish_lists`
 const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")
 const itemsList = document.getElementById("items-list")
+
 
 // function fetchWishLists(){
 //     fetch(wishListUrl)
@@ -15,7 +17,9 @@ const itemsList = document.getElementById("items-list")
 document.addEventListener("DOMContentLoaded", function(e) {
     WishList.fetchAllWishLists()
 })
-wishListForm.addEventListener("submit", WishList.submitWishList)
+// wishListForm.addEventListener("submit", WishList.submitWishList)
+
+// itemForm.addEventListener("submit", Item.submitItem)
 
 // function submitWishList(){
 //     event.preventDefault()

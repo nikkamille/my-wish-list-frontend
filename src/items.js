@@ -14,8 +14,11 @@ class Item {
     }
     
     static submitItem() {
-        event.preventDefault()
-        console.log("Item submitted! Chos!")
+        const submitItemForm = document.getElementById("item-form")
+        submitItemForm.addEventListener("submit", function(e) {
+            console.log("Item submitted! Chos!")
+        })
+        
     }
 
     static loadFromWishList(wishListId, items) {
