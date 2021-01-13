@@ -76,15 +76,15 @@ class WishList {
         this.listNameLink.classList.add(..."block text-center font-medium p-2 col-span-6 text-xl cursor-pointer".split(" "))
         this.listNameLink.textContent = this.name
 
-        this.editButton ||= document.createElement("button") 
-        this.editButton.classList.add(..."focus:outline-none".split(" "))
-        this.editButton.innerHTML = `<i class="far fa-edit"></i>`
+        // this.editButton ||= document.createElement("button") 
+        // this.editButton.classList.add(..."focus:outline-none".split(" "))
+        // this.editButton.innerHTML = `<i class="far fa-edit"></i>`
 
         this.deleteButton ||= document.createElement("button")
-        this.deleteButton.classList.add(..."float-right focus:outline-none".split(" "))
+        this.deleteButton.classList.add(..."focus:outline-none".split(" "))
         this.deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`
 
-        this.liElement.append(this.listNameLink, this.editButton, this.deleteButton)
+        this.liElement.append(this.listNameLink, this.deleteButton)
         this.constructor.wishListContainer().appendChild(this.liElement)
 
         this.listNameLink.addEventListener("click", this.showWishList)

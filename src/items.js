@@ -65,7 +65,6 @@ class Item {
 
         this.constructor.itemContainer().appendChild(this.liElement)
 
-
         return this.liElement
     }
 
