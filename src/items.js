@@ -105,7 +105,6 @@ class Item {
     deleteItem() {
         let confirmDelete = confirm("Are you sure you want to delete this item?")
         const itemId = this.parentElement.dataset.id
-        console.log(itemId)
         if(confirmDelete) {
             fetch(`${itemsUrl}/${itemId}`, {
                 method: "DELETE"

@@ -110,13 +110,14 @@ class WishList {
     deleteWishList() {
         let confirmDelete = confirm("Are you sure you want to delete? This will remove all items inside your wish list.")
         const wishListId = this.parentElement.dataset.id
+        let itemsListChildren = itemsList.children[0]
         if(confirmDelete) {
             fetch(`${wishListUrl}/${wishListId}`, {
                 method: "DELETE"
             })
             
             this.parentElement.remove()
-            // itemsList.children.remove()
+            itemsListChildren.remove()
         }
         
     }
