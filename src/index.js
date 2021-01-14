@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 })
 wishListForm.addEventListener("submit", WishList.submitWishList)
 
-itemForm.addEventListener("submit", function(e) {
-    // Item.submitItem(formData)
-    console.log("Please work")
-})
+itemForm.addEventListener("submit", Item.submitItem)
 
 // function submitWishList(){
 //     event.preventDefault()
