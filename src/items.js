@@ -64,6 +64,7 @@ class Item {
     renderItem() {
         this.liElement ||= document.createElement("li")
         this.liElement.classList.add(..."grid-cols-12 border-2 rounded-md p-2 my-4".split(" "))
+        this.liElement.dataset.id = this.id
 
         this.image ||= document.createElement("img")
         this.image.src = this.image_url
@@ -96,17 +97,19 @@ class Item {
 
         this.constructor.itemListContainer().appendChild(this.liElement)
 
+        this.itemDeleteButton.addEventListener("click", this.deleteItem)
+
         return this.liElement
     }
 
-  
-
-
-
-
-
-
-
+    deleteItem() {
+        // let confirmDelete = confirm("Are you sure you want to delete this item?")
+        const itemId = this.parentElement.dataset.id
+        console.log(this.parentElement)
+        // if(confirmDelete) {
+        //     fetch(`${itemsUrl}/${itemId}`)
+        // }
+    }
 
 
 }

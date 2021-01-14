@@ -116,7 +116,7 @@ class WishList {
             })
             
             this.parentElement.remove()
-            itemsList.children.remove()
+            // itemsList.children.remove()
         }
         
     }
