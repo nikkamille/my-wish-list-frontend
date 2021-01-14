@@ -4,7 +4,7 @@ This is the client side of my Javascript project.
 
 # My Wish List Backend
 
-Here's the github repo for my prject's backend: https://github.com/nikkamille/my-wish-list-backend.
+Here's the github repo for my project's backend: https://github.com/nikkamille/my-wish-list-backend.
 
 # My Wish List
 
