@@ -103,6 +103,8 @@ class WishList {
         h3ListName.classList.add(..."font-sans text-4xl font-medium text-purple-900 text-center m-4".split(" "))
         h3ListName.innerHTML = this.name
         itemContainer.appendChild(h3ListName)
+        itemContainer.insertBefore(h3ListName, itemContainer.firstChild)
+        h3ListName.innerHTML = ""
 
         console.log(this.name)
         return fetch(`${wishListUrl}/${wishListId}`, {
