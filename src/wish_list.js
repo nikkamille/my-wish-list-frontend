@@ -101,11 +101,12 @@ class WishList {
         h3ListName.setAttribute("name", this.name)
         h3ListName.classList.add(..."font-sans text-4xl font-medium text-purple-900 text-center m-4".split(" "))
         h3ListName.innerHTML = this.name
+        h3ListName.dataset.id = this.parentElement.dataset.id
+        
         wishListNameContainer.innerHTML = ""
         wishListNameContainer.appendChild(h3ListName)
         wishListNameContainer.insertBefore(h3ListName, wishListNameContainer.firstChild)
 
-        console.log(this.name)
         return fetch(`${wishListUrl}/${wishListId}`, {
             headers: {
                 "Content-Type": "application/json",

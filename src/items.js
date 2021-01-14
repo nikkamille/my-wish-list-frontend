@@ -15,14 +15,15 @@ class Item {
     
     static submitItem(formData) {
         event.preventDefault()
-        console.log(formData.target.parentElement)
+        console.log(formData.target.parentElement.children[0].children[0])
 
         const itemNameInput = formData.target.children[0].value
         const itemPriceInput = formData.target.children[1].value
         const itemUrlInput = formData.target.children[2].value
         const itemImageUrlInput = formData.target.children[3].value
+        const itemWishListId = Item.wish_list_id
         
-        return fetch(itemsUrl, {
+        const configObj = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -33,11 +34,16 @@ class Item {
                 price: itemPriceInput, 
                 url: itemUrlInput,
                 image_url: itemImageUrlInput,
-                // wish_list_id: wishListId
+                wish_list_id: parseInt(itemWishListId)
             })
-        })
-        // .then(res => res.json(console.log))
-        // .then(console.log)
+        }
+        // debugger
+        return fetch(itemsUrl, configObj)
+        .then(res => res.json())
+        .then(console.log)
+        // .then(data => {
+        //     console.log(data)
+        // })
     }
 
     // static submitItem() {
