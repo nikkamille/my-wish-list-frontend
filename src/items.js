@@ -36,13 +36,13 @@ class Item {
                 wish_list_id: parseInt(itemWishListId)
             })
         }
-        return fetch(itemsUrl, configObj)
+        fetch(itemsUrl, configObj)
         .then(res => res.json())
         .then(itemAttributes => {
             let newItem = new Item(itemAttributes)
             newItem.renderItem()
         })
-        
+        itemForm.reset()
     }
     
     static loadFromWishList(wishListId, items) {
@@ -51,15 +51,6 @@ class Item {
         this.itemListContainer().innerHTML = ""
         this.itemListContainer().append(...renderedItems)
     }
-
-    // <li class="grid-cols-12 border-2 rounded-md p-2 my-4">
-    //     <img src="https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f310e626a911f4e432f6fb5%2F0x0.jpg" alt="Cellphone" width="500" height="600" class="mx-auto place-content-center m-2">
-    //     <p class="text-center font-medium">Cellphone</p><br/>
-    //     <p class="text-center font-medium -m-6">$900</p><br/>
-    //     <a href="https://www.samsung.com/us/smartphones/the-next-galaxy/reserve/" class="block text-center font-medium text-blue-700 break-all">https://www.samsung.com/us/smartphones/the-next-galaxy/reserve/</a><br/>
-    //     <button class="text-sm font-bold text-red-700 focus:outline-none">EDIT</button><br/>
-    //     <button class="text-sm font-bold text-red-700 focus:outline-none">DELETE</button>
-    // </li>
 
     renderItem() {
         this.liElement ||= document.createElement("li")

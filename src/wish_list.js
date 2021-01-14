@@ -54,11 +54,6 @@ class WishList {
         wishListForm.reset() 
     }
 
-    // static findWishListById(id) {
-    //     return this.collection.find(wishList => wishList.id == id)
-    // }
-
-
     renderWishList() {
         this.liElement ||= document.createElement("li")
         this.liElement.classList.add(..."transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4".split(" "))
