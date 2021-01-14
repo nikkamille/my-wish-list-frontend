@@ -31,6 +31,8 @@ class WishList {
             })    
     }
 
+    // Save the objects inside the this.collection.
+
     static submitWishList(){
         event.preventDefault()
     

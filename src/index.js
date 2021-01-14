@@ -14,4 +14,3 @@ document.addEventListener("DOMContentLoaded", function(e) {
 wishListForm.addEventListener("submit", WishList.submitWishList)
 
 itemForm.addEventListener("submit", Item.submitItem)
-

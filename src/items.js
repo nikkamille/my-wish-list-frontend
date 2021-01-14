@@ -44,6 +44,8 @@ class Item {
         })
         itemForm.reset()
     }
+
+    // Save the objects inside the this.collection.
     
     static loadFromWishList(wishListId, items) {
         this.collection = items.map(item => new Item(item))
@@ -93,7 +95,10 @@ class Item {
         return this.liElement
     }
 
+    // Update the code here so that "this" refers to the actual object and not the delete button.
+
     deleteItem() {
+        console.log(this, "this")
         let confirmDelete = confirm("Are you sure you want to delete this item?")
         const itemId = this.parentElement.dataset.id
         if(confirmDelete) {
@@ -101,6 +106,7 @@ class Item {
                 method: "DELETE"
             })
             this.parentElement.remove()
+            
         }
     }
 
