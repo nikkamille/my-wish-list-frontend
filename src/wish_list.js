@@ -59,14 +59,6 @@ class WishList {
     // }
 
 
-
-    // Fill the elements with this html:
-    // <li class="transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4">
-    //     <a href="#" class="block text-center font-medium py-4 col-span-6 text-xl">Birthday Wishes</a>
-    //     <a href="#"><i class="far fa-edit"></i></a>
-    //     <a href="#" class="float-right"><i class="far fa-trash-alt"></i></a>
-    // </li>
-
     renderWishList() {
         this.liElement ||= document.createElement("li")
         this.liElement.classList.add(..."transition duration-700 ease-in-out bg-white hover:bg-pink-100 transform hover:-translate-y-1 hover:scale-110 shadow-xl rounded-md p-2 my-4".split(" "))
@@ -76,10 +68,6 @@ class WishList {
         this.listNameLink.setAttribute("name", this.name)
         this.listNameLink.classList.add(..."block text-center font-medium p-2 col-span-6 text-xl cursor-pointer".split(" "))
         this.listNameLink.textContent = this.name
-
-        // this.editButton ||= document.createElement("button") 
-        // this.editButton.classList.add(..."focus:outline-none".split(" "))
-        // this.editButton.innerHTML = `<i class="far fa-edit"></i>`
 
         this.deleteButton ||= document.createElement("button")
         this.deleteButton.classList.add(..."focus:outline-none".split(" "))
@@ -128,6 +116,7 @@ class WishList {
             })
             
             this.parentElement.remove()
+            itemsList.children.remove()
         }
         
     }

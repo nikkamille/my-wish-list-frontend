@@ -15,13 +15,12 @@ class Item {
     
     static submitItem(formData) {
         event.preventDefault()
-        console.log(formData.target.parentElement.children[0].children[0])
-
+        
         const itemNameInput = formData.target.children[0].value
         const itemPriceInput = formData.target.children[1].value
         const itemUrlInput = formData.target.children[2].value
         const itemImageUrlInput = formData.target.children[3].value
-        const itemWishListId = Item.wish_list_id
+        const itemWishListId = formData.target.parentElement.children[0].children[0].dataset.id
         
         const configObj = {
             method: "POST",
@@ -37,45 +36,14 @@ class Item {
                 wish_list_id: parseInt(itemWishListId)
             })
         }
-        // debugger
         return fetch(itemsUrl, configObj)
         .then(res => res.json())
-        .then(console.log)
-        // .then(data => {
-        //     console.log(data)
-        // })
+        .then(itemAttributes => {
+            let newItem = new Item(itemAttributes)
+            newItem.renderItem()
+        })
+        
     }
-
-    // static submitItem() {
-    //     event.preventDefault()
-
-    //     console.log("Item submitted! Chos!")
-
-    //     const configObject = {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             name: itemNameInput.value,
-    //             price: itemPriceInput.value,
-                // url: itemUrlInput.value,
-                // image_url: itemImageUrlInput.value
-    //         })
-    //             // name: this.name,
-    //             // price: this.price, 
-    //             // url: this.url,
-    //             // image_url: this.image_url,
-    //             // wish_list_id: this.wish_list_id
-    //     }
-        
-    //     return fetch(itemsUrl, configObject)
-    //     .then(res => res.json())
-    //     .then(console.log)
-        
-    // }
-
     
     static loadFromWishList(wishListId, items) {
         this.collection = items.map(item => new Item(item))
