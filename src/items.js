@@ -13,11 +13,31 @@ class Item {
         return this.item ||= document.getElementById("items-list")
     }
     
-    static submitItem() {
-        const submitItemForm = document.getElementById("item-form")
-        submitItemForm.addEventListener("submit", function(e) {
-            console.log("Item submitted! Chos!")
-        })
+    static submitItem(formData) {
+        // const submitItemForm = document.getElementById("item-form")
+        // submitItemForm.addEventListener("submit", function(e) {
+            // console.log("Item submitted! Chos!")
+        // })
+        // event.preventDefault()
+
+        console.log("Item submitted! Chos!")
+
+        const configObject = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({item: formData})
+                // name: itemName,
+                // price: itemPrice, 
+                // url: itemUrl,
+                // image_url: itemImageUrl,
+                // wish_list_id: wishListId
+        }
+        fetch(itemsUrl, configObject)
+        .then(console.log({item: formData}))
+        // .then(console.log)
         
     }
 

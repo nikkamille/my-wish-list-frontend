@@ -1,5 +1,6 @@
 const wishListForm = document.getElementById("wish-list-form")
 const itemForm = document.getElementById("item-form")
+// const itemFormButton = document.getElementById("item-form-button")
 const wishListInput = document.getElementById("wish-list-input")
 // const wishLists = document.getElementById("wish-lists")
 const wishListUrl = `http://localhost:3000/wish_lists`
@@ -17,9 +18,12 @@ const itemsList = document.getElementById("items-list")
 document.addEventListener("DOMContentLoaded", function(e) {
     WishList.fetchAllWishLists()
 })
-// wishListForm.addEventListener("submit", WishList.submitWishList)
+wishListForm.addEventListener("submit", WishList.submitWishList)
 
-// itemForm.addEventListener("submit", Item.submitItem)
+itemForm.addEventListener("submit", function(e) {
+    // Item.submitItem(formData)
+    console.log("Please work")
+})
 
 // function submitWishList(){
 //     event.preventDefault()
@@ -103,11 +107,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 //             "Accept": "application/json"
 //         },
 //         body: JSON.stringify({
-//             name: itemName,
-//             price: itemPrice, 
-//             url: itemUrl,
-//             image_url: itemImageUrl,
-//             wish_list_id: wishListId
+            // name: itemName,
+            // price: itemPrice, 
+            // url: itemUrl,
+            // image_url: itemImageUrl,
+            // wish_list_id: wishListId
 //         })
 //     })
     

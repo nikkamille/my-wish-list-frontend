@@ -29,13 +29,13 @@
             <div id="item-container" class="px-4 bg-gray-50 sm:min-h-screen rounded-3xl shadow-xl col-span-3">
                 <h3 class="font-sans text-4xl font-medium text-purple-900 text-center m-4">List Name</h3>
                 
-                <div id="item-form" class="container mx-auto p-5"> 
+                <form id="item-form" class="container mx-auto p-5"> 
                     <input type="text" id="item-name" placeholder="Item" class="mx-2 mb-2 container mx-auto p-2 border border-blue-900 rounded-md h-8 w-18 outline-none">
                     <input type="number" id="item-price" placeholder="Price" class="m-2 container mx-auto p-2 border border-blue-900 rounded-md h-8 w-18 outline-none">
                     <input type="text" id="item-url" placeholder="Website" class="m-2 container mx-auto p-2 border border-blue-900 rounded-md h-8 w-18 outline-none">
                     <input type="text" id="item-image-url" placeholder="Image Link" class="m-2 container mx-auto p-2 border border-blue-900 rounded-md h-8 w-18 outline-none">
-                    <input type="submit" class="m-2 container mx-auto bg-purple-900 hover:bg-purple-700 box-border h-8 w-18 rounded-md shadow col-span-1 text-white font-semibold outline-none">
-                </div>
+                    <input type="submit" id="item-form-button" class="m-2 container mx-auto bg-purple-900 hover:bg-purple-700 box-border h-8 w-18 rounded-md shadow col-span-1 text-white font-semibold outline-none">
+                </form>
                     
                 <ul id="items-list" class="grid-rows-12">
                     <li class="my-2 ml-4 p-3 font-medium">Select from the list on the left to see your items.</li>
@@ -48,6 +48,6 @@
     <script src="./src/wish_list.js"></script>
     <script src="./src/items.js"></script>
     <script src="./src/index.js"></script>
-    <!-- <script src="./src/listeners.js"></script> -->
+    <script src="./src/listeners.js"></script>
 </body>
 </html>
