@@ -97,14 +97,13 @@ class WishList {
 
     showWishList() {
         const wishListId = this.parentElement.dataset.id
-        const itemContainer = document.getElementById("item-container")
         let h3ListName = document.createElement("h3")
         h3ListName.setAttribute("name", this.name)
         h3ListName.classList.add(..."font-sans text-4xl font-medium text-purple-900 text-center m-4".split(" "))
         h3ListName.innerHTML = this.name
-        itemContainer.appendChild(h3ListName)
-        itemContainer.insertBefore(h3ListName, itemContainer.firstChild)
-        h3ListName.innerHTML = ""
+        wishListNameContainer.innerHTML = ""
+        wishListNameContainer.appendChild(h3ListName)
+        wishListNameContainer.insertBefore(h3ListName, wishListNameContainer.firstChild)
 
         console.log(this.name)
         return fetch(`${wishListUrl}/${wishListId}`, {

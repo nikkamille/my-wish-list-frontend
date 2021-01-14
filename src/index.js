@@ -6,6 +6,8 @@ const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")
 const itemsList = document.getElementById("items-list")
 const itemForm = document.getElementById("item-form")
+const wishListNameContainer = document.getElementById("item-name-container")
+
 // const itemNameInput = document.getElementById("item-name-input")
 // const itemPriceInput = document.getElementById("item-price-input")
 // const itemUrlInput = document.getElementById("item-url-input")
