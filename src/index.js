@@ -1,13 +1,15 @@
 const wishListForm = document.getElementById("wish-list-form")
-const itemForm = document.getElementById("item-form")
-// const itemFormButton = document.getElementById("item-form-button")
 const wishListInput = document.getElementById("wish-list-input")
 // const wishLists = document.getElementById("wish-lists")
 const wishListUrl = `http://localhost:3000/wish_lists`
 const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")
 const itemsList = document.getElementById("items-list")
-
+const itemForm = document.getElementById("item-form")
+const itemNameInput = document.getElementById("item-name-input")
+const itemPriceInput = document.getElementById("item-price-input")
+const itemUrlInput = document.getElementById("item-url-input")
+const itemImageUrlInput = document.getElementById("item-image-url-input")
 
 // function fetchWishLists(){
 //     fetch(wishListUrl)
