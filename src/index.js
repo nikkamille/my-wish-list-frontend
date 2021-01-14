@@ -10,6 +10,12 @@ const itemNameInput = document.getElementById("item-name-input")
 const itemPriceInput = document.getElementById("item-price-input")
 const itemUrlInput = document.getElementById("item-url-input")
 const itemImageUrlInput = document.getElementById("item-image-url-input")
+// const formData = {
+//     name: itemNameInput.value,
+//     price: itemPriceInput.value,
+//     url: itemUrlInput.value,
+//     image_url: itemImageUrlInput.value
+// }
 
 // function fetchWishLists(){
 //     fetch(wishListUrl)

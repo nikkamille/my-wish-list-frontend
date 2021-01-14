@@ -13,31 +13,57 @@ class Item {
         return this.item ||= document.getElementById("items-list")
     }
     
-    static submitItem() {
+    static submitItem(formData) {
         event.preventDefault()
 
-        console.log("Item submitted! Chos!")
+        const itemNameInput = formData.target.children[0].value
+        const itemPriceInput = formData.target.children[1].value
+        const itemUrlInput = formData.target.children[2].value
+        const itemImageUrlInput = formData.target.children[3].value
 
-        const configObject = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                name: formData.value
-            })
-                // name: this.name,
-                // price: this.price, 
-                // url: this.url,
-                // image_url: this.image_url,
-                // wish_list_id: this.wish_list_id
-        }
-        fetch(itemsUrl, configObject)
-        .then(res => res.json())
-        .then(console.log)
+        console.log(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
         
+        // return fetch(itemsUrl, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Accept": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         item: formData
+        //     })
+        // })
     }
+
+    // static submitItem() {
+    //     event.preventDefault()
+
+    //     console.log("Item submitted! Chos!")
+
+    //     const configObject = {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             name: itemNameInput.value,
+    //             price: itemPriceInput.value,
+                // url: itemUrlInput.value,
+                // image_url: itemImageUrlInput.value
+    //         })
+    //             // name: this.name,
+    //             // price: this.price, 
+    //             // url: this.url,
+    //             // image_url: this.image_url,
+    //             // wish_list_id: this.wish_list_id
+    //     }
+        
+    //     return fetch(itemsUrl, configObject)
+    //     .then(res => res.json())
+    //     .then(console.log)
+        
+    // }
 
     static loadFromWishList(wishListId, items) {
         this.collection = items.map(item => new Item(item))
