@@ -73,6 +73,7 @@ class WishList {
         this.liElement.dataset.id = this.id
 
         this.listNameLink ||= document.createElement("a")
+        this.listNameLink.setAttribute("name", this.name)
         this.listNameLink.classList.add(..."block text-center font-medium p-2 col-span-6 text-xl cursor-pointer".split(" "))
         this.listNameLink.textContent = this.name
 
@@ -92,8 +93,13 @@ class WishList {
         return this.liElement
     }
 
+    // <h3 class="font-sans text-4xl font-medium text-purple-900 text-center m-4">List Name</h3>
+
     showWishList() {
         const wishListId = this.parentElement.dataset.id
+        // const itemContainer = document.getElementById("item-container")
+        // let h3ListName = document.createElement("h3")
+        console.log(this.name)
         return fetch(`${wishListUrl}/${wishListId}`, {
             headers: {
                 "Content-Type": "application/json",

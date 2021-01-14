@@ -6,10 +6,10 @@ const itemsUrl = `http://localhost:3000/items`
 const itemContainer = document.getElementById("item-container")
 const itemsList = document.getElementById("items-list")
 const itemForm = document.getElementById("item-form")
-const itemNameInput = document.getElementById("item-name-input")
-const itemPriceInput = document.getElementById("item-price-input")
-const itemUrlInput = document.getElementById("item-url-input")
-const itemImageUrlInput = document.getElementById("item-image-url-input")
+// const itemNameInput = document.getElementById("item-name-input")
+// const itemPriceInput = document.getElementById("item-price-input")
+// const itemUrlInput = document.getElementById("item-url-input")
+// const itemImageUrlInput = document.getElementById("item-image-url-input")
 // const formData = {
 //     name: itemNameInput.value,
 //     price: itemPriceInput.value,
@@ -81,10 +81,10 @@ itemForm.addEventListener("submit", Item.submitItem)
 // function renderItem(e){
 //     e.preventDefault()
     
-//     const itemNameInput = e.target.children[1].value
-//     const itemPriceInput = e.target.children[4].value
-//     const itemUrlInput = e.target.children[7].value
-//     const itemImageUrlInput = e.target.children[10].value
+    // const itemNameInput = e.target.children[1].value
+    // const itemPriceInput = e.target.children[4].value
+    // const itemUrlInput = e.target.children[7].value
+    // const itemImageUrlInput = e.target.children[10].value
 //     const wishListId = e.target.parentElement.dataset.id
 
 //     const itemName = document.createElement('li')

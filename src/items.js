@@ -9,30 +9,35 @@ class Item {
         this.wish_list_id = item.wish_list_id
     }
 
-    static itemContainer() {
+    static itemListContainer() {
         return this.item ||= document.getElementById("items-list")
     }
     
     static submitItem(formData) {
         event.preventDefault()
+        console.log(formData.target.parentElement)
 
         const itemNameInput = formData.target.children[0].value
         const itemPriceInput = formData.target.children[1].value
         const itemUrlInput = formData.target.children[2].value
         const itemImageUrlInput = formData.target.children[3].value
-
-        console.log(itemNameInput, itemPriceInput, itemUrlInput, itemImageUrlInput)
         
-        // return fetch(itemsUrl, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accept": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         item: formData
-        //     })
-        // })
+        return fetch(itemsUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                name: itemNameInput,
+                price: itemPriceInput, 
+                url: itemUrlInput,
+                image_url: itemImageUrlInput,
+                // wish_list_id: wishListId
+            })
+        })
+        // .then(res => res.json(console.log))
+        // .then(console.log)
     }
 
     // static submitItem() {
@@ -65,11 +70,12 @@ class Item {
         
     // }
 
+    
     static loadFromWishList(wishListId, items) {
         this.collection = items.map(item => new Item(item))
         let renderedItems = this.collection.map(item => item.renderItem())
-        this.itemContainer().innerHTML = ""
-        this.itemContainer().append(...renderedItems)
+        this.itemListContainer().innerHTML = ""
+        this.itemListContainer().append(...renderedItems)
     }
 
     // <li class="grid-cols-12 border-2 rounded-md p-2 my-4">
@@ -84,8 +90,6 @@ class Item {
     renderItem() {
         this.liElement ||= document.createElement("li")
         this.liElement.classList.add(..."grid-cols-12 border-2 rounded-md p-2 my-4".split(" "))
-
-        const br = document.createElement("BR")
 
         this.image ||= document.createElement("img")
         this.image.src = this.image_url
@@ -116,7 +120,7 @@ class Item {
         this.liElement.insertBefore(document.createElement("br"), this.itemLink)
         this.liElement.insertBefore(document.createElement("br"), this.itemDeleteButton)
 
-        this.constructor.itemContainer().appendChild(this.liElement)
+        this.constructor.itemListContainer().appendChild(this.liElement)
 
         return this.liElement
     }
